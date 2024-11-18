@@ -697,6 +697,7 @@ footer p {
 
     nav a {
         font-size: 0.8em; /* Slightly smaller font size for links */
+        font-weight: bold;
        
     }
 
@@ -746,20 +747,21 @@ footer p {
 
     /* Introduction section styling */
     #introduction {
-        font-size: 0.8em; /* Adjusted font size */
+        font-size: 0.65em; /* Adjusted font size */
+        font-weight:bold;
         position: center;
     }
 
     #iconic-players-content {
         grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-        gap: 8px;
-        padding: 10px;
+        gap: 10px;
+        padding: 0px;
     }
     
     .iconic-player-card {
-        padding: 7px; /* Reduced padding for compact layout */
-        font-size: 0.9rem; /* Adjusted font size for better fit */
-        height: 260px; /* Height adjusted to balance image and text */
+        padding: 4px; /* Reduced padding for compact layout */
+        font-size: 1rem; /* Adjusted font size for better fit */
+        height: 280px; /* Height adjusted to balance image and text */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -771,7 +773,7 @@ footer p {
     /* Image settings for a balanced, square shape */
     .iconic-player-image {
         width: 100%;                /* Adjust width to fit inside the card */
-        height: 150px;             /* Height optimized for visibility */
+        height: 160px;             /* Height optimized for visibility */
         object-fit: cover;         /* Ensure image fills the space */
         border-radius: 5px;        /* Rounded corners */
         margin-bottom: 10px;        /* Space below image */
@@ -780,7 +782,7 @@ footer p {
     /* Responsive font sizes for text elements */
     .iconic-player-card p,
     .iconic-player-card strong {
-        font-size: calc(0.29rem + 0.7vw); /* Responsive font sizing */
+        font-size: calc(0.38rem + 0.7vw); /* Responsive font sizing */
         line-height: 1.2;                 /* Reduce line spacing */
         overflow: hidden;
         text-overflow: ellipsis;          /* Truncate if necessary */
@@ -794,6 +796,21 @@ footer p {
         height: 12px;
         margin-left: 4px;
         vertical-align: middle;
+    }
+
+    .iconic-player-card:hover {
+        transform: scale(1.02); /* Slightly smaller scale for smoother performance */
+        box-shadow: 
+            0 0 5px rgba(255, 255, 255, 0.8), /* Lighter white glow */
+            0 0 10px #A50044; /* Neon red only for simplicity */
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+    }
+
+    /* Optional: Simplified Background Glow for Phones */
+    .iconic-player-card::before {
+        opacity: 0.5; /* Always partially visible for less computation on hover */
+        transform: scale(1.0); /* Subtle animation effect */
+        transition: none; /* Disable complex transitions */
     }
     
     #trophy-cabinet {
@@ -873,18 +890,18 @@ footer p {
     padding:4px;
 }
 
-  #news-list {
-        padding: 10px; /* Reduce padding for compact view */
-        border-radius: 5px; /* Slightly less rounded corners */
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-    }
+#news-list {
+    padding: 10px; /* Reduce padding for compact view */
+    border-radius: 5px; /* Slightly less rounded corners */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+}
 
-    /* Adjusting #news-list li for smaller screens */
-    #news-list li {
-        margin-bottom: 8px; /* Less spacing between items */
-        font-size: 0.9em; /* Slightly smaller font for readability on mobile */
-    }
-    
+/* Adjusting #news-list li for smaller screens */
+#news-list li {
+    margin-bottom: 8px; /* Less spacing between items */
+    font-size: 0.9em; /* Slightly smaller font for readability on mobile */
+}
+
 }
   
 /* Media query for tablets */
