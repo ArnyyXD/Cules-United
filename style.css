@@ -203,42 +203,39 @@ footer p {
 
 /* Contact Button Styling */
 .contact-button {
-    text-decoration: none;
-    margin: 10px 0; /* Adjusted for spacing */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensures proper button behavior */
+    margin: 10px auto; /* Center-align with auto for responsive layouts */
+    text-align: center; /* Center text within the button */
 }
 
 .boton-elegante {
-    padding: 9px 15px; /* Balanced padding */
-    border: 1px solid #2c2c2c;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 0.85rem;
-    cursor: pointer;
-    border-radius: 17px;
-    transition: all 0.3s ease;
-    font-weight: bold;
-}
-
-.boton-elegante::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
-    transform: scale(0);
-    transition: transform 0.3s ease;
-}
-
-.boton-elegante:hover::after {
-    transform: scale(3); /* Reduced scale for smoother effect */
+    display: inline-block; /* Ensure inline-block for proper spacing */
+    padding: 12px 20px; /* Slightly larger padding for better visibility */
+    border: 2px solid #2c2c2c; /* Slightly thicker border for emphasis */
+    background-color: #1a1a1a; /* Dark button background */
+    color: #ffffff; /* White text color for contrast */
+    font-size: 1rem; /* Standard font size */
+    cursor: pointer; /* Pointer on hover */
+    border-radius: 25px; /* More rounded corners for a modern look */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    font-weight: bold; /* Bold text for emphasis */
+    text-align: center; /* Center text */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .boton-elegante:hover {
-    border-color: #666666;
-    background: #292929;
+    background-color: #292929; /* Slightly lighter background on hover */
+    border-color: #666666; /* Change border color on hover */
+    color: #fbc02d; /* Highlight text color on hover */
+    transform: translateY(-2px); /* Lift button slightly on hover */
 }
+
+.boton-elegante:active {
+    transform: translateY(0); /* Return to original position on click */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Reduce shadow on click */
+}
+
 
 /* Footer Box */
 #footer-box {
