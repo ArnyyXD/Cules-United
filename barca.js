@@ -1,5 +1,5 @@
 // Replace with your API keys
-const footballApiKey='8dfe6a0735759f476b47c6453fc4cfb7';
+const footballApiKey='3a036d7f50b57f7fd5dce870ceb7b81f';
 const newsApiKey = 'QI1oZoxu9DYOr5g7BoKb762czGNVB1tare-Ft0OEF6I';
 const teamId = 529; // FC Barcelona team ID in API-Football
 
