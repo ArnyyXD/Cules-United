@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cules United | FC Barcelona Fan Page</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS & JS Links -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="pollDatabase.js" defer></script>
+    <script src="static.js" defer></script>
+    <script src="barca.js" defer></script>
+    
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="header-overlay"></div>
+        <div class="header-container">
+            <div class="left-side">
+                <div class="logo-container">
+                    <dotlottie-player 
+                        src="https://lottie.host/e0b3e7d0-b858-473e-9039-8cd3c27e8323/6aQp3oRJEU.json" 
+                        background="transparent" 
+                        speed="0.5" 
+                        style="width: 80px; height: 80px;" 
+                        loop 
+                        autoplay>
+                    </dotlottie-player>
+                </div>
+                <div class="title-box">
+                    <h1>CULES UNITED</h1>
+                    <p class="tagline">Més Que Un Club • More Than A Club</p>
+                </div>
+            </div>
+            
+            <div class="right-side">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#introduction" class="nav-link active">Intro</a></li>
+                        <li><a href="#match-poll" class="nav-link">Match Poll</a></li>
+                        <li><a href="#fixtures" class="nav-link">Fixtures</a></li>
+                        <li><a href="#news-section" class="nav-link">News</a></li>
+                        <li><a href="#iconic-players" class="nav-link">Icons</a></li>
+                        <li><a href="#trophy-cabinet" class="nav-link">Trophies</a></li>
+                        <li><a href="#squad" class="nav-link">Squad</a></li>
+                        <li><a href="#socials" class="nav-link">Socials</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero & Introduction Section -->
+        <section id="introduction" class="glass-card hero-section">
+            <div class="hero-badge">FC BARCELONA FAN HUB</div>
+            <h2>Welcome to Cules United</h2>
+            <p class="hero-description">
+                Immerse yourself in the world of <strong>FC Barcelona</strong>. Celebrate iconic legends, track real-time match fixtures, test your predictions in fan polls, and stay updated with breaking news. United by passion, bound by history — <em>Visca el Barça!</em>
+            </p>
+
+            <!-- Quick Club Stats Banner -->
+            <div class="club-quick-stats">
+                <div class="stat-pill">
+                    <span class="stat-number">27</span>
+                    <span class="stat-label">La Liga Titles</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Champions League</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-number">31</span>
+                    <span class="stat-label">Copa del Rey</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Club World Cups</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Prediction Poll (Database Backed) -->
+        <section id="match-poll" class="glass-card section-card">
+            <div class="section-header">
+                <span class="section-tag">FAN PREDICTION DB</span>
+                <h2>Match Prediction Poll</h2>
+                <p class="section-subtitle">Cast your vote for the upcoming fixture and see real-time fan percentages!</p>
+            </div>
+            
+            <div id="poll-container" class="poll-wrapper">
+                <!-- Dynamic Poll Card Rendered by barca.js + pollDatabase.js -->
+                <div class="poll-loading">Loading Match Poll...</div>
+            </div>
+        </section>
+
+        <!-- Fixtures Section (Upcoming & Previous Matches) -->
+        <section id="fixtures" class="glass-card section-card">
+            <div class="section-header">
+                <span class="section-tag">MATCH CENTER</span>
+                <h2>Fixtures & Results</h2>
+                <p class="section-subtitle">Official match schedules and recent scores for FC Barcelona</p>
+            </div>
+
+            <div class="fixtures-grid">
+                <!-- Upcoming Matches -->
+                <div class="fixture-block" id="upcoming-matches">
+                    <div class="block-header">
+                        <h3><span class="pulse-dot"></span> Upcoming Matches</h3>
+                    </div>
+                    <div id="upcoming-matches-content" class="matches-list">
+                        <p class="loading-text">Loading upcoming fixtures...</p>
+                    </div>
+                </div>
+
+                <!-- Previous Matches -->
+                <div class="fixture-block" id="past-matches">
+                    <div class="block-header">
+                        <h3><span class="history-icon">🏆</span> Previous Matches</h3>
+                    </div>
+                    <div id="past-matches-content" class="matches-list">
+                        <p class="loading-text">Loading past results...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news-section" class="glass-card section-card">
+            <div class="section-header">
+                <span class="section-tag">LATEST UPDATES</span>
+                <h2>Barcelona News Feed</h2>
+                <p class="section-subtitle">Stay informed with the latest transfers, team reports, and club announcements</p>
+            </div>
+            <div id="news-grid" class="news-container">
+                <!-- Rendered dynamically by barca.js -->
+                <p class="loading-text">Fetching latest news...</p>
+            </div>
+        </section>
+
+        <!-- Iconic Players Section -->
+        <section id="iconic-players" class="glass-card section-card">
+            <div class="section-header">
+                <span class="section-tag">HALL OF FAME</span>
+                <h2>Iconic Barça Legends</h2>
+                <p class="section-subtitle">The football magicians who defined generations at Camp Nou</p>
+            </div>
+            <div id="iconic-players-content" class="players-grid"></div>
+        </section>
+
+        <!-- Trophy Cabinet Section -->
+        <section id="trophy-cabinet" class="glass-card section-card">
+            <div class="section-header">
+                <span class="section-tag">GLORY & HONORS</span>
+                <h2>Trophy Cabinet</h2>
+                <p class="section-subtitle">A legendary legacy written in gold and silver</p>
+            </div>
+            <div class="trophy-list">
+                <div class="trophy-item">
+                    <img src="trophies/laliga.png" alt="La Liga Trophy">
+                    <h3>La Liga</h3>
+                    <div class="trophy-badge">27 Titles</div>
+                    <p>Years Won: 1929, 1945, 1948, 1949, 1952, 1953, 1959, 1960, 1974, 1985, 1991, 1992, 1993, 1994, 1998, 1999, 2005, 2006, 2009, 2010, 2011, 2013, 2015, 2016, 2018, 2019, 2023</p>
+                </div>
+                <div class="trophy-item">
+                    <img src="trophies/copadelrey.png" alt="Copa del Rey Trophy">
+                    <h3>Copa del Rey</h3>
+                    <div class="trophy-badge">31 Titles</div>
+                    <p>Years Won: 1910, 1912, 1913, 1920, 1922, 1925, 1926, 1928, 1942, 1951, 1952, 1953, 1957, 1959, 1963, 1968, 1971, 1978, 1981, 1983, 1988, 1990, 1997, 1998, 2009, 2012, 2015, 2016, 2017, 2018, 2021</p>
+                </div>
+                <div class="trophy-item">
+                    <img src="trophies/championsleague.png" alt="Champions League Trophy">
+                    <h3>UEFA Champions League</h3>
+                    <div class="trophy-badge">5 Titles</div>
+                    <p>Years Won: 1992, 2006, 2009, 2011, 2015</p>
+                </div>
+                <div class="trophy-item">
+                    <img src="trophies/copadeespana.png" alt="Supercopa Trophy">
+                    <h3>Supercopa de España</h3>
+                    <div class="trophy-badge">14 Titles</div>
+                    <p>Years Won: 1983, 1991, 1992, 1994, 1996, 2005, 2006, 2009, 2010, 2011, 2013, 2016, 2018, 2023</p>
+                </div>
+                <div class="trophy-item">
+                    <img src="trophies/clubworldcup.png" alt="FIFA Club World Cup Trophy">
+                    <h3>FIFA Club World Cup</h3>
+                    <div class="trophy-badge">3 Titles</div>
+                    <p>Years Won: 2009, 2011, 2015</p>
+                </div>
+                <div class="trophy-item">
+                    <img src="trophies/supercup.png" alt="UEFA Super Cup Trophy">
+                    <h3>UEFA Super Cup</h3>
+                    <div class="trophy-badge">5 Titles</div>
+                    <p>Years Won: 1992, 1997, 2009, 2011, 2015</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Club Anthem -->
+        <section id="club-anthem" class="glass-card section-card anthem-section">
+            <div class="section-header">
+                <span class="section-tag">CANT DEL BARÇA</span>
+                <h2>Official Club Anthem</h2>
+            </div>
+            <div class="anthem-video-wrapper">
+                <iframe width="100%" height="340" src="https://www.youtube.com/embed/9JdugskAcS0" title="Cant del Barça - FC Barcelona Anthem" style="border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Squad Info Section -->
+        <section id="squad" class="glass-card section-card">
+            <div class="section-header">
+                <span class="section-tag">FIRST TEAM</span>
+                <h2>Current Squad Roster</h2>
+                <p class="section-subtitle">Meet the Blaugrana stars taking the pitch</p>
+            </div>
+            <div id="squad-content" class="squad-grid">
+                <p class="loading-text">Loading current squad...</p>
+            </div>
+        </section>
+
+        <!-- Social Links (Signature Gradient Icons) -->
+        <section id="socials" class="glass-card section-card socials-section">
+            <div class="section-header">
+                <span class="section-tag">OFFICIAL COMMUNITY</span>
+                <h2>Connect With FC Barcelona</h2>
+                <p class="section-subtitle">Follow official club social channels with signature gradient effects</p>
+            </div>
+            <ul class="social-wrapper">
+                <!-- Facebook -->
+                <li class="social-icon facebook">
+                    <a href="https://www.facebook.com/fcbarcelona" target="_blank" aria-label="FC Barcelona Facebook">
+                        <span class="tooltip">Facebook</span>
+                        <svg viewBox="0 0 320 512" height="1.4em" fill="currentColor"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" /></svg>
+                    </a>
+                </li>
+                <!-- Twitter / X -->
+                <li class="social-icon twitter">
+                    <a href="https://twitter.com/FCBarcelona" target="_blank" aria-label="FC Barcelona Twitter">
+                        <span class="tooltip">X / Twitter</span>
+                        <svg height="1.5em" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </li>
+                <!-- Instagram -->
+                <li class="social-icon instagram">
+                    <a href="https://www.instagram.com/fcbarcelona" target="_blank" aria-label="FC Barcelona Instagram">
+                        <span class="tooltip">Instagram</span>
+                        <svg height="1.4em" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" /></svg>
+                    </a>
+                </li>
+                <!-- YouTube -->
+                <li class="social-icon youtube">
+                    <a href="https://www.youtube.com/user/fcbarcelona" target="_blank" aria-label="FC Barcelona YouTube">
+                        <span class="tooltip">YouTube</span>
+                        <svg height="1.4em" fill="currentColor" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022 1.083.006.452v.038l-.006.453-.022 1.083-.01.104a18.25 18.25 0 0 1-.22 1.403 2.009 2.009 0 0 1-1.415 1.42c-1.12.302-5.285.332-6.11.335h-.089c-.822-.003-4.987-.033-6.11-.335a2.01 2.01 0 0 1-1.415-1.42 18.27 18.27 0 0 1-.22-1.403l-.01-.104-.022-1.083L.006 8v-.038l.006-.453.022-1.083.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c1.12-.302 5.285-.332 6.11-.335zM6.557 5.5v5l4.3-2.5-4.3-2.5z"/></svg>
+                    </a>
+                </li>
+                <!-- TikTok -->
+                <li class="social-icon tiktok">
+                    <a href="https://www.tiktok.com/@fcbarcelona" target="_blank" aria-label="FC Barcelona TikTok">
+                        <span class="tooltip">TikTok</span>
+                        <svg height="1.4em" fill="currentColor" viewBox="0 0 16 16"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.312C12.91 3.007 13.812 3.403 14.527 3.547V5.53c-.933-.031-1.805-.336-2.547-.852V10.5C11.98 13.538 9.518 16 6.48 16 3.442 16 0.98 13.538 0.98 10.5 0.98 7.462 3.442 5 6.48 5c.42 0 .828.05 1.22.144V7.18A4.478 4.478 0 0 0 6.48 7c-1.933 0-3.5 1.567-3.5 3.5S4.547 14 6.48 14c1.933 0 3.5-1.567 3.5-3.5V0z"/></svg>
+                    </a>
+                </li>
+                <!-- Spotify -->
+                <li class="social-icon spotify">
+                    <a href="https://open.spotify.com/user/fcbarcelona" target="_blank" aria-label="FC Barcelona Spotify">
+                        <span class="tooltip">Spotify</span>
+                        <svg height="1.4em" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/></svg>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 Cules United • FC Barcelona Fan Page. For the love of Barça.</p>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-button">
+                <div class="boton-elegante">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: sub; margin-right: 6px;"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.871h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" /></svg>
+                    Connect on LinkedIn
+                </div>
+            </a>
+            <div class="footer-content">
+                <p>
+                    Built with passion by Culés worldwide. Match & News data backed by API-Football, RSS feeds & Cules United Database.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
