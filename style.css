@@ -1,6 +1,6 @@
 /* ==========================================================================
    CULES UNITED - FC BARCELONA OFFICIAL FAN PAGE STYLESHEET
-   Style Architecture: Apple / Nvidia Ultra-Smooth Glassmorphism & Micro-Interactions
+   Style Architecture: High-Performance Apple / Nvidia Glassmorphism & GPU Acceleration
    Theme: Midnight Obsidian (#05070d) & Gold Glow Accent (#FFCD00)
    ========================================================================== */
 
@@ -28,8 +28,8 @@ html {
     --barca-gold-glow: rgba(255, 205, 0, 0.35);
     
     --bg-dark: #05070d;
-    --bg-card: rgba(13, 19, 33, 0.75);
-    --bg-card-hover: rgba(20, 30, 52, 0.9);
+    --bg-card: rgba(13, 19, 33, 0.82);
+    --bg-card-hover: rgba(20, 30, 52, 0.95);
     
     --text-light: #f8fafc;
     --text-muted: #94a3b8;
@@ -53,18 +53,19 @@ body {
 }
 
 /* ==========================================================================
-   HEADER & ULTRA-SMOOTH NAVIGATION
+   HEADER & GPU-ACCELERATED NAVIGATION
    ========================================================================== */
 .main-header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(5, 7, 13, 0.82);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(5, 7, 13, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 205, 0, 0.25);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    transition: all 0.4s var(--ease-apple);
+    transform: translateZ(0);
+    transition: all 0.35s var(--ease-apple);
 }
 
 .header-container {
@@ -83,8 +84,8 @@ body {
 }
 
 .logo-container {
-    filter: drop-shadow(0 0 15px rgba(255, 205, 0, 0.5));
-    transition: transform 0.4s var(--ease-apple);
+    filter: drop-shadow(0 0 12px rgba(255, 205, 0, 0.5));
+    transition: transform 0.35s var(--ease-apple);
 }
 
 .logo-container:hover {
@@ -127,7 +128,7 @@ body {
     padding: 8px 14px;
     border-radius: 20px;
     position: relative;
-    transition: all 0.35s var(--ease-apple);
+    transition: all 0.3s var(--ease-apple);
 }
 
 .nav-link::after {
@@ -138,7 +139,7 @@ body {
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--barca-red), var(--barca-gold));
-    transition: all 0.35s var(--ease-apple);
+    transition: all 0.3s var(--ease-apple);
     transform: translateX(-50%);
     border-radius: 4px;
 }
@@ -159,7 +160,7 @@ body {
 }
 
 /* ==========================================================================
-   MAIN CONTAINERS & APPLE GLASS CARDS
+   MAIN CONTAINERS & OPTIMIZED GLASS CARDS
    ========================================================================== */
 main {
     max-width: 1280px;
@@ -172,15 +173,16 @@ main {
 
 .glass-card {
     background: var(--bg-card);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     padding: 36px;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 16px 40px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    transition: transform 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+    transform: translateZ(0);
+    transition: transform 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple);
 }
 
 .glass-card::before {
@@ -195,7 +197,13 @@ main {
 
 .glass-card:hover {
     border-color: rgba(255, 205, 0, 0.3);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 30px 60px -15px rgba(165, 0, 68, 0.25);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 25px 50px -15px rgba(165, 0, 68, 0.25);
+}
+
+/* Off-screen Content Optimization for Buttery-Smooth Scroll */
+#news-section, #iconic-players, #trophy-cabinet, #squad, #socials {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
 }
 
 .section-header {
@@ -279,11 +287,11 @@ h2 {
     flex-direction: column;
     align-items: center;
     min-width: 145px;
-    transition: transform 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple), background-color 0.4s var(--ease-apple);
+    transition: transform 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple);
 }
 
 .stat-pill:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-5px) scale(1.02);
     border-color: var(--barca-gold);
     background: rgba(165, 0, 68, 0.35);
 }
@@ -315,7 +323,7 @@ h2 {
     border: 1.5px solid rgba(0, 77, 152, 0.5);
     border-radius: 20px;
     padding: 28px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .poll-header {
@@ -388,7 +396,7 @@ h2 {
     border-radius: 16px;
     padding: 16px 20px;
     cursor: pointer;
-    transition: all 0.35s var(--ease-apple);
+    transition: all 0.3s var(--ease-apple);
     position: relative;
     overflow: hidden;
 }
@@ -428,7 +436,7 @@ h2 {
 .bar-fill {
     height: 100%;
     border-radius: 6px;
-    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: width 0.7s var(--ease-apple);
 }
 
 .win-fill {
@@ -516,11 +524,11 @@ h2 {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 18px;
-    transition: transform 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+    transition: transform 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple);
 }
 
 .match-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: var(--barca-gold);
     box-shadow: 0 12px 30px -5px rgba(0, 77, 152, 0.4);
 }
@@ -630,13 +638,13 @@ h2 {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple);
+    transition: transform 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple);
 }
 
 .news-card:hover {
-    transform: translateY(-8px) scale(1.015);
+    transform: translateY(-6px) scale(1.015);
     border-color: var(--barca-gold);
-    box-shadow: 0 25px 45px -10px rgba(165, 0, 68, 0.35);
+    box-shadow: 0 20px 40px -10px rgba(165, 0, 68, 0.35);
 }
 
 .news-image-wrapper {
@@ -649,7 +657,7 @@ h2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s var(--ease-apple);
+    transition: transform 0.5s var(--ease-apple);
 }
 
 .news-card:hover .news-thumb {
@@ -728,14 +736,14 @@ h2 {
     border-radius: 18px;
     padding: 20px;
     text-align: center;
-    transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple);
+    transition: transform 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple);
     position: relative;
 }
 
 .iconic-player-card:hover {
-    transform: translateY(-8px) scale(1.025);
+    transform: translateY(-6px) scale(1.02);
     border-color: var(--barca-gold);
-    box-shadow: 0 0 25px rgba(255, 205, 0, 0.3), 0 20px 35px rgba(165, 0, 68, 0.35);
+    box-shadow: 0 0 25px rgba(255, 205, 0, 0.3), 0 15px 30px rgba(165, 0, 68, 0.35);
     background: rgba(20, 30, 52, 0.95);
 }
 
@@ -783,13 +791,13 @@ h2 {
     border-radius: 20px;
     padding: 26px;
     text-align: center;
-    transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple);
+    transition: transform 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple);
 }
 
 .trophy-item:hover {
-    transform: translateY(-8px) scale(1.035);
+    transform: translateY(-6px) scale(1.03);
     border-color: var(--barca-gold);
-    box-shadow: 0 20px 40px rgba(255, 205, 0, 0.3);
+    box-shadow: 0 18px 35px rgba(255, 205, 0, 0.3);
 }
 
 .trophy-item img {
@@ -838,11 +846,11 @@ h2 {
     border-radius: 16px;
     padding: 18px;
     position: relative;
-    transition: transform 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple);
+    transition: transform 0.3s var(--ease-apple), border-color 0.3s var(--ease-apple);
 }
 
 .player-card-modern:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: var(--barca-gold);
     background: rgba(20, 30, 52, 0.95);
 }
@@ -876,7 +884,7 @@ h2 {
 .player-card-modern.forward { border-left: 4px solid var(--barca-red); }
 
 /* ==========================================================================
-   SOCIALS SECTION (Signature Custom Brand Gradients)
+   SOCIALS SECTION (Signature Brand Vector Icons)
    ========================================================================== */
 .socials-section { text-align: center; }
 
@@ -890,8 +898,8 @@ h2 {
 }
 
 .social-icon {
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     background: rgba(255, 255, 255, 0.06);
     border: 1.5px solid rgba(255, 255, 255, 0.12);
     border-radius: 50%;
@@ -902,7 +910,8 @@ h2 {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     position: relative;
-    transition: transform 0.4s var(--ease-apple), background 0.4s var(--ease-apple), border-color 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+    transform: translateZ(0);
+    transition: transform 0.35s var(--ease-apple), background 0.35s var(--ease-apple), border-color 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple);
 }
 
 .social-icon a {
@@ -914,6 +923,12 @@ h2 {
     height: 100%;
     border-radius: 50%;
     text-decoration: none;
+}
+
+.social-icon svg {
+    display: block;
+    width: 1.4em;
+    height: 1.4em;
 }
 
 /* Tooltip Hover */
@@ -941,51 +956,51 @@ h2 {
 
 /* Individual Brand Gradients on Hover */
 .social-icon.facebook:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.12);
     background: linear-gradient(135deg, #1877F2 0%, #0056B3 100%);
     border-color: #1877F2;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(24, 119, 242, 0.6);
+    box-shadow: 0 12px 25px rgba(24, 119, 242, 0.5);
 }
 
 .social-icon.twitter:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.12);
     background: linear-gradient(135deg, #000000 0%, #1DA1F2 100%);
     border-color: #1DA1F2;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(29, 161, 242, 0.6);
+    box-shadow: 0 12px 25px rgba(29, 161, 242, 0.5);
 }
 
 .social-icon.instagram:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.12);
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     border-color: #e6683c;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(220, 39, 67, 0.6);
+    box-shadow: 0 12px 25px rgba(220, 39, 67, 0.5);
 }
 
 .social-icon.youtube:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.12);
     background: linear-gradient(135deg, #FF0000 0%, #990000 100%);
     border-color: #FF0000;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 12px 25px rgba(255, 0, 0, 0.5);
 }
 
 .social-icon.tiktok:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.12);
     background: linear-gradient(135deg, #00f2fe 0%, #4facfe 40%, #ff0050 100%);
     border-color: #ff0050;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(255, 0, 80, 0.6);
+    box-shadow: 0 12px 25px rgba(255, 0, 80, 0.5);
 }
 
 .social-icon.spotify:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.12);
     background: linear-gradient(135deg, #1DB954 0%, #107c35 100%);
     border-color: #1DB954;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(29, 185, 84, 0.6);
+    box-shadow: 0 12px 25px rgba(29, 185, 84, 0.5);
 }
 
 /* ==========================================================================
@@ -1016,13 +1031,13 @@ h2 {
     font-weight: 700;
     border-radius: 30px;
     text-decoration: none;
-    transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+    transition: transform 0.35s var(--ease-apple), box-shadow 0.35s var(--ease-apple);
     border: 1px solid var(--barca-gold);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .boton-elegante:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-3px) scale(1.03);
     box-shadow: 0 0 25px var(--barca-gold-glow);
 }
 

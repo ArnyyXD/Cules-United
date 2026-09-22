@@ -14,7 +14,7 @@ const teamId = 529; // FC Barcelona team ID in API-Football
 // Cache Durations
 const CACHE_TIME = 24 * 60 * 60 * 1000;
 const PAST_MATCHES_CACHE_TIME = 60 * 60 * 1000;
-const NEWS_CACHE_KEY = 'cules_united_news_v3';
+const NEWS_CACHE_KEY = 'cules_united_news_v4';
 const NEWS_CACHE_DURATION = 60 * 60 * 1000;
 
 // API Endpoints
@@ -30,43 +30,43 @@ const PSG_CREST = 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Ge
 const SEVILLA_CREST = 'https://upload.wikimedia.org/wikipedia/en/3/3b/Sevilla_FC_logo.svg';
 const ATLETICO_CREST = 'https://upload.wikimedia.org/wikipedia/en/c/c1/Atletico_Madrid_logo.svg';
 
-// Current Season Match Fixtures (2025/2026 Season)
+// 2026-27 Season Match Fixtures
 const CURRENT_SEASON_UPCOMING_MATCHES = [
     {
-        fixture: { id: 301, date: '2026-09-27T20:00:00Z', venue: { name: 'Estadi Olímpic Lluís Companys, Barcelona' } },
-        league: { name: 'La Liga • El Clásico' },
+        fixture: { id: 301, date: '2026-10-04T20:00:00Z', venue: { name: 'Spotify Camp Nou, Barcelona' } },
+        league: { name: 'La Liga 2026-27 • El Clásico' },
         teams: {
             home: { name: 'FC Barcelona', logo: BARCA_CREST },
             away: { name: 'Real Madrid', logo: REAL_MADRID_CREST }
         }
     },
     {
-        fixture: { id: 302, date: '2026-10-01T21:00:00Z', venue: { name: 'Estadi Olímpic Lluís Companys, Barcelona' } },
-        league: { name: 'UEFA Champions League' },
+        fixture: { id: 302, date: '2026-10-21T21:00:00Z', venue: { name: 'Spotify Camp Nou, Barcelona' } },
+        league: { name: 'UEFA Champions League 2026-27' },
         teams: {
             home: { name: 'FC Barcelona', logo: BARCA_CREST },
             away: { name: 'Bayern Munich', logo: BAYERN_CREST }
         }
     },
     {
-        fixture: { id: 303, date: '2026-10-18T19:00:00Z', venue: { name: 'Estadi Olímpic Lluís Companys, Barcelona' } },
-        league: { name: 'La Liga' },
+        fixture: { id: 303, date: '2026-11-01T19:00:00Z', venue: { name: 'Spotify Camp Nou, Barcelona' } },
+        league: { name: 'La Liga 2026-27' },
         teams: {
             home: { name: 'FC Barcelona', logo: BARCA_CREST },
             away: { name: 'Sevilla FC', logo: SEVILLA_CREST }
         }
     },
     {
-        fixture: { id: 304, date: '2026-10-25T17:30:00Z', venue: { name: 'Civitas Metropolitano, Madrid' } },
-        league: { name: 'La Liga' },
+        fixture: { id: 304, date: '2026-11-22T17:30:00Z', venue: { name: 'Civitas Metropolitano, Madrid' } },
+        league: { name: 'La Liga 2026-27' },
         teams: {
             home: { name: 'Atletico Madrid', logo: ATLETICO_CREST },
             away: { name: 'FC Barcelona', logo: BARCA_CREST }
         }
     },
     {
-        fixture: { id: 305, date: '2026-11-04T21:00:00Z', venue: { name: 'Parc des Princes, Paris' } },
-        league: { name: 'UEFA Champions League' },
+        fixture: { id: 305, date: '2026-12-02T21:00:00Z', venue: { name: 'Parc des Princes, Paris' } },
+        league: { name: 'UEFA Champions League 2026-27' },
         teams: {
             home: { name: 'Paris Saint-Germain', logo: PSG_CREST },
             away: { name: 'FC Barcelona', logo: BARCA_CREST }
@@ -77,40 +77,40 @@ const CURRENT_SEASON_UPCOMING_MATCHES = [
 const CURRENT_SEASON_PAST_MATCHES = [
     {
         fixture: { id: 401, date: '2026-09-20T20:00:00Z' },
-        league: { name: 'La Liga • El Clásico' },
+        league: { name: 'La Liga 2026-27' },
         teams: {
-            home: { name: 'Real Madrid', logo: REAL_MADRID_CREST },
+            home: { name: 'Villarreal', logo: 'https://upload.wikimedia.org/wikipedia/en/7/70/Villarreal_CF_logo.svg' },
             away: { name: 'FC Barcelona', logo: BARCA_CREST }
         },
-        goals: { home: 0, away: 4 },
-        scorers: 'Lewandowski 54\', 56\', Lamine Yamal 77\', Raphinha 84\''
+        goals: { home: 1, away: 5 },
+        scorers: 'Lewandowski 20\', 35\', Pablo Torre 58\', Raphinha 74\', 83\''
     },
     {
-        fixture: { id: 402, date: '2026-09-15T21:00:00Z' },
-        league: { name: 'UEFA Champions League' },
+        fixture: { id: 402, date: '2026-09-15T20:00:00Z' },
+        league: { name: 'La Liga 2026-27' },
         teams: {
             home: { name: 'FC Barcelona', logo: BARCA_CREST },
-            away: { name: 'Bayern Munich', logo: BAYERN_CREST }
+            away: { name: 'Athletic Club', logo: 'https://upload.wikimedia.org/wikipedia/en/7/75/Athletic_Club_logo.svg' }
         },
-        goals: { home: 4, away: 1 },
-        scorers: 'Raphinha 1\', 45\', 56\', Lewandowski 36\''
+        goals: { home: 2, away: 1 },
+        scorers: 'Lamine Yamal 24\', Lewandowski 75\''
     },
     {
-        fixture: { id: 403, date: '2026-09-08T18:30:00Z' },
-        league: { name: 'La Liga' },
+        fixture: { id: 403, date: '2026-09-01T19:00:00Z' },
+        league: { name: 'La Liga 2026-27' },
         teams: {
             home: { name: 'FC Barcelona', logo: BARCA_CREST },
-            away: { name: 'Sevilla FC', logo: SEVILLA_CREST }
+            away: { name: 'Real Valladolid', logo: 'https://upload.wikimedia.org/wikipedia/en/6/6e/Real_Valladolid_Logo.svg' }
         },
-        goals: { home: 5, away: 1 },
-        scorers: 'Lewandowski 24\', 39\', Pedri 28\', Pablo Torre 82\', 88\''
+        goals: { home: 7, away: 0 },
+        scorers: 'Raphinha 20\', 64\', 72\', Lewandowski 24\', Koundé 45+2\', Olmo 82\', Ferran 85\''
     }
 ];
 
-// Current Curated News
+// Curated News (2026-27 Season)
 const BARCA_NEWS_FEED = [
     {
-        title: "Lamine Yamal & Raphinha Lead Barça's Electrifying Attack in 2025/26 Campaign",
+        title: "Lamine Yamal & Raphinha Lead Barça's Electrifying Attack in 2026/27 Campaign",
         summary: "FC Barcelona's forward line continues to mesmerize Europe with high-octane pressing, clinical finishing, and creative brilliance under Hansi Flick.",
         link: "https://www.fcbarcelona.com/en/first-team/news",
         tag: "Match Analysis",
@@ -119,7 +119,7 @@ const BARCA_NEWS_FEED = [
     },
     {
         title: "Hansi Flick Outlines Tactical Masterplan Ahead of El Clásico",
-        summary: "Head coach Hansi Flick praised team discipline and midfield control while discussing squad rotation and preparation for upcoming key fixtures.",
+        summary: "Head coach Hansi Flick praised team discipline and midfield control while discussing squad rotation and preparation for upcoming key 2026-27 fixtures.",
         link: "https://www.fcbarcelona.com/en/club/news",
         tag: "Tactics",
         date: "Sept 21, 2026",
@@ -192,7 +192,7 @@ function setCacheData(key, data) {
 }
 
 /**
- * Fetch & Display News (Safe execution without unhandled console errors)
+ * Fetch & Display News
  */
 async function fetchNews() {
     const newsContainer = document.getElementById('news-grid');
@@ -263,13 +263,13 @@ function displayNews(articles) {
 }
 
 /**
- * Fetch & Display Upcoming Matches (Current 2025/2026 Season)
+ * Fetch & Display Upcoming Matches (2026-27 Season)
  */
 async function fetchUpcomingMatches() {
     const container = document.getElementById('upcoming-matches-content');
     if (!container) return;
 
-    const cached = getCachedData('cules_upcoming_matches_v3', CACHE_TIME);
+    const cached = getCachedData('cules_upcoming_matches_v4', CACHE_TIME);
     if (cached) {
         displayUpcomingMatches(cached);
         return;
@@ -281,7 +281,7 @@ async function fetchUpcomingMatches() {
             if (res.ok) {
                 const data = await res.json();
                 if (data.response && data.response.length > 0) {
-                    setCacheData('cules_upcoming_matches_v3', data.response);
+                    setCacheData('cules_upcoming_matches_v4', data.response);
                     displayUpcomingMatches(data.response);
                     return;
                 }
@@ -304,7 +304,7 @@ function displayUpcomingMatches(matches) {
         const formattedDate = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         const home = m.teams.home;
         const away = m.teams.away;
-        const leagueName = m.league?.name || 'La Liga';
+        const leagueName = m.league?.name || 'La Liga 2026-27';
 
         const matchCard = document.createElement('div');
         matchCard.className = 'match-card upcoming-card';
@@ -324,20 +324,20 @@ function displayUpcomingMatches(matches) {
                     <span class="team-name">${away.name}</span>
                 </div>
             </div>
-            <div class="match-venue">📍 ${m.fixture.venue?.name || 'Camp Nou'}</div>
+            <div class="match-venue">📍 ${m.fixture.venue?.name || 'Spotify Camp Nou'}</div>
         `;
         container.appendChild(matchCard);
     });
 }
 
 /**
- * Fetch & Display Previous Matches (Current 2025/2026 Season Results)
+ * Fetch & Display Previous Matches (2026-27 Season Results)
  */
 async function fetchPreviousMatches() {
     const container = document.getElementById('past-matches-content');
     if (!container) return;
 
-    const cached = getCachedData('cules_past_matches_v3', PAST_MATCHES_CACHE_TIME);
+    const cached = getCachedData('cules_past_matches_v4', PAST_MATCHES_CACHE_TIME);
     if (cached) {
         displayPreviousMatches(cached);
         return;
@@ -349,7 +349,7 @@ async function fetchPreviousMatches() {
             if (res.ok) {
                 const data = await res.json();
                 if (data.response && data.response.length > 0) {
-                    setCacheData('cules_past_matches_v3', data.response);
+                    setCacheData('cules_past_matches_v4', data.response);
                     displayPreviousMatches(data.response);
                     return;
                 }
@@ -380,7 +380,7 @@ function displayPreviousMatches(matches) {
         matchCard.className = `match-card past-card ${isBarcaWin ? 'barca-win' : ''}`;
         matchCard.innerHTML = `
             <div class="match-card-header">
-                <span class="competition-badge">${m.league?.name || 'La Liga'}</span>
+                <span class="competition-badge">${m.league?.name || 'La Liga 2026-27'}</span>
                 <span class="result-status-badge ${isBarcaWin ? 'win' : 'draw'}">${isBarcaWin ? 'WIN 🏆' : 'RESULT'}</span>
             </div>
             <div class="teams-score-container">

@@ -5,12 +5,12 @@
 
 class PollDatabase {
     constructor() {
-        this.STORAGE_KEY = 'cules_united_poll_db_v1';
+        this.STORAGE_KEY = 'cules_united_poll_db_v2';
         this.db = this.loadDatabase();
     }
 
     /**
-     * Default seed data for upcoming FC Barcelona matches
+     * Default seed data for upcoming FC Barcelona matches (2026-27 Season)
      */
     getDefaultData() {
         return {
@@ -19,9 +19,9 @@ class PollDatabase {
                     id: 'match_barca_realmadrid',
                     homeTeam: 'FC Barcelona',
                     awayTeam: 'Real Madrid',
-                    competition: 'La Liga • El Clásico',
-                    date: 'Sunday, Oct 4 • 20:00 CET',
-                    homeLogo: 'photos/logo.png', // or Barca crest
+                    competition: 'La Liga 2026-27 • El Clásico',
+                    date: 'Sunday, Oct 4, 2026 • 20:00 CET',
+                    homeLogo: 'photos/logo.png',
                     votes: {
                         win: 1845,
                         draw: 312,
@@ -32,8 +32,8 @@ class PollDatabase {
                     id: 'match_barca_bayern',
                     homeTeam: 'FC Barcelona',
                     awayTeam: 'Bayern Munich',
-                    competition: 'UEFA Champions League',
-                    date: 'Wednesday, Oct 21 • 21:00 CET',
+                    competition: 'UEFA Champions League 2026-27',
+                    date: 'Wednesday, Oct 21, 2026 • 21:00 CET',
                     votes: {
                         win: 1420,
                         draw: 405,
@@ -53,7 +53,6 @@ class PollDatabase {
             const stored = localStorage.getItem(this.STORAGE_KEY);
             if (stored) {
                 const parsed = JSON.parse(stored);
-                // Ensure default matches exist if structure updated
                 const defaults = this.getDefaultData();
                 return {
                     matches: { ...defaults.matches, ...parsed.matches },
@@ -116,7 +115,7 @@ class PollDatabase {
 
         const previousVote = this.db.userVotes[matchId];
 
-        // If user voted previously, retract previous choice first
+        // Retract previous choice if voted before
         if (previousVote && match.votes[previousVote] > 0) {
             match.votes[previousVote] -= 1;
         }
