@@ -593,4 +593,21 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPreviousMatches();
     fetchSquad();
     renderMatchPoll();
+
+    // ── Scroll-spy: highlight active nav link as user scrolls ──────────────────
+    const sections   = document.querySelectorAll('main section[id]');
+    const navLinks   = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+            }
+        });
+    }, { threshold: 0.35 });
+
+    sections.forEach(sec => observer.observe(sec));
 });
