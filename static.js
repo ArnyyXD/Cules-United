@@ -149,7 +149,7 @@ const iconicPlayers = [
     {
         name: "Hristo Stoichkov",
         nationality: "Bulgaria",
-        image: "photos/Stoichkov.jpg",
+        image: "photos/Hristo Stoichkov.jpg",
         description: "One of the most talented forwards, known for his goal-scoring ability."
     },
     {
@@ -189,25 +189,27 @@ const iconicPlayers = [
 function displayIconicPlayers() {
     const iconicPlayersContainer = document.getElementById('iconic-players-content');
     if (!iconicPlayersContainer) return;
-    iconicPlayersContainer.innerHTML = ''; // Clear previous content
+
+    const fragment = document.createDocumentFragment();
 
     iconicPlayers.forEach(player => {
-        // Correct path for the flags
         const flagImagePath = `flags/${player.nationality.toLowerCase()}.png`;
-
-        // Appending player cards dynamically using template literals
-        iconicPlayersContainer.innerHTML += `
-            <div class="iconic-player-card">
-                <img src="${player.image}" alt="${player.name}" class="iconic-player-image" onerror="this.src='photos/Messi.jpg'" />
-                <p><strong>Name:</strong> ${player.name}</p>
-                <p><strong>Nationality:</strong> 
-                    <img src="${flagImagePath}" alt="${player.nationality} flag" class="nationality-flag" onerror="this.style.display='none'" />
-                    ${player.nationality}
-                </p>
-                <p>${player.description}</p>
-            </div>
+        const card = document.createElement('div');
+        card.className = 'iconic-player-card';
+        card.innerHTML = `
+            <img src="${player.image}" alt="${player.name}" class="iconic-player-image" loading="lazy" onerror="this.src='photos/Messi.jpg'" />
+            <p><strong>Name:</strong> ${player.name}</p>
+            <p><strong>Nationality:</strong>
+                <img src="${flagImagePath}" alt="${player.nationality} flag" class="nationality-flag" onerror="this.style.display='none'" />
+                ${player.nationality}
+            </p>
+            <p>${player.description}</p>
         `;
+        fragment.appendChild(card);
     });
+
+    iconicPlayersContainer.innerHTML = '';
+    iconicPlayersContainer.appendChild(fragment);
 }
 
 // Initial call to display iconic players
